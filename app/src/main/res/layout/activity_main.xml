@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/nguoidoi">
+
+    <!-- Chế độ đồng hồ -->
+    <LinearLayout
+        android:id="@+id/clockModeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Đồng hồ Analog -->
+        <com.phuocvo.clock_2.CustomAnalogClock
+            android:id="@+id/customAnalogClock"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vietnam"
+            android:textColor="@color/dark_red"
+            android:textSize="50sp"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/timeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:35 AM"
+            android:textColor="@color/colorDarkPrimary"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="80sp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Chế độ báo thức -->
+    <LinearLayout
+        android:id="@+id/alarmModeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:visibility="gone"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="16dp"
+        android:layout_gravity="start">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addAlarmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_alarm"
+            app:tint="@color/white"
+            app:backgroundTint="@color/colorDarkPrimary"
+            android:layout_marginEnd="8dp"
+        android:contentDescription="@string/add_alarm_desc" />
+
+        <TextView
+            android:id="@+id/addAlarmText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm báo thức"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/alarmListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp" />
+</LinearLayout>
+
+
+    <!-- Icons to switch between modes -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:background="@drawable/bottom_nav_background"
+        android:padding="12dp"
+        android:elevation="6dp">
+
+        <ImageView
+            android:id="@+id/iconClock"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_clock"
+            android:contentDescription="@string/clock_icon_desc"
+            android:padding="8dp"
+            android:layout_marginEnd="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="center"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/iconAlarm"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_alarm"
+            android:contentDescription="@string/alarm_icon_desc"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="center"
+            app:tint="@color/black" />
+    </LinearLayout>
+</RelativeLayout>
